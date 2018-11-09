@@ -31,7 +31,7 @@
                                         <strong>{{ $question->votes }}</strong> {{str_plural('vote', $question->votes)}}
                                     </div>
                                     <div class="status {{$question->status}} ">
-                                        <strong>{{ $question->answers }}</strong> {{str_plural('answer', $question->answers)}}
+                                        <strong>{{ $question->answers_count}}</strong> {{str_plural('answer', $question->answers_count)}}
                                     </div>
                                     <div class="view">
                                         {{ $question->views . str_plural('view', $question->views)}}
@@ -59,10 +59,10 @@
                                                 @endcan
                                         </div>
                                     </div>
-                                    
+
                                     <p class="lead">
                                         Asked by
-                                        <a href="{{$question->user->url}}">{{$question->user->name}}</a>
+                                        <a href="{{$question->user->id}}">{{$question->user->name}}</a>
                                         <small class="text-muted">{{$question->created_date}}</small>
                                     </p>
                                     {{str_limit($question->body, 250)}}

@@ -32,10 +32,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(Question::class);
     }
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 
     public function getUrlAttribute()
     {
         return '#';
+    }
+    public function getAvatarAttribute()
+    {
+        $email = $this->email;
+        $size = 12;
+        $default = "https://www.somewhere.com/homestar.jpg";
+        $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) )  . "&s=" . $size;
+        return $grav_url;
     }
 }
 //=========================== FIELDS
