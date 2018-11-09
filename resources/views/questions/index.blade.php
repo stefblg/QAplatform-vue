@@ -45,14 +45,18 @@
                                             </a>
                                         </h3>
                                         <div class="ml-auto">
-                                            <a href="{{route('questions.edit', $question->id)}}" class="btn btn-sm btn-outline-info">Edit</a>
-                                            <form class="form-delete" method="post" action="{{route('questions.destroy', $question->id)}}">
-                                                {{--{{method_field("DELETE")}}--}}
-{{--                                                {{csrf_token()}}--}}
-                                                @method('delete')
-                                                @csrf
-                                                <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                                            </form>
+                                            @can('update', $question)
+                                                <a href="{{route('questions.edit', $question->id)}}" class="btn btn-sm btn-outline-info">Edit</a>
+                                            @endcan
+                                                @can('delete', $question)
+                                                <form class="form-delete" method="post" action="{{route('questions.destroy', $question->id)}}">
+                                                    {{--{{method_field("DELETE")}}--}}
+                                                    {{--{{csrf_token()}}--}}
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                                </form>
+                                                @endcan
                                         </div>
                                     </div>
                                     
