@@ -1,13 +1,33 @@
+
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+
+        <img src="images/logo.png" alt="" class="mb-3 centered">
+    </div>
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <div class="" style="width:100%;">
 
                 <div class="card-body">
+                    {{--<form >--}}
+                        {{--<div class="form-group">--}}
+                            {{--<label for="email">E-mail</label>--}}
+                            {{--<input type="email" id="email" class="form-control" placeholder="user@example.com" required>--}}
+                        {{--</div>--}}
+                        {{--<div class="form-group">--}}
+                            {{--<label for="password">Password</label>--}}
+                            {{--<input type="password" id="password" class="form-control"  required>--}}
+                        {{--</div>--}}
+
+                        {{--<button type="submit" class="btn btn-default">Uloguj se--}}
+                        {{--</button>--}}
+
+                    {{--</form>--}}
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -65,7 +85,15 @@
                     </form>
                 </div>
             </div>
+
         </div>
+
     </div>
-</div>
+
+
+
+
+    </div>
+
+
 @endsection
